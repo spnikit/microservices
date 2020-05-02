@@ -1,12 +1,17 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
 
 function PostCreate() {
   const [title, setTitle] = useState("");
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     e.stopPropagation();
+
+    await axios.post("http://localhost:4000/posts", { title });
+
+    setTitle("");
   };
 
   return (
