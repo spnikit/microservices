@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useFetchPost } from "./customHooks";
+import CommentCreate from "./CommentCreate";
 
 function PostList() {
   const { fetchPosts, posts } = useFetchPost({});
@@ -17,10 +18,12 @@ function PostList() {
       >
         <div className="card-body">
           <h3>{post.title}</h3>
+          <CommentCreate postId={post.id} />
         </div>
       </div>
     );
   });
+
   return (
     <div className="d-flex flex-row flex-wrap justify-content-between">
       {renderedPosts}
