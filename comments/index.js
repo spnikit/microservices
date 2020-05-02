@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const { randomBytes } = require("crypto");
 const cors = require("cors");
 
+// ******** SERVER AND MIDDLEWARE SETUP *********
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
@@ -10,6 +11,7 @@ app.use(cors());
 // ******** DATA *********
 const commentsByPostId = {};
 
+// ******** ROUTES *********
 app.get("/posts/:id/comments", (req, res) => {
   res.send(commentsByPostId[req.params.id] || []);
 });
@@ -25,4 +27,5 @@ app.post("/posts/:id/comments", (req, res) => {
   res.status(201).send(comments);
 });
 
+// ******** SERVER FIRE UP *********
 app.listen(6001, () => console.log("Server is listening on port 6001"));
