@@ -38,7 +38,6 @@ app.post("/events", (req, res) => {
     }
   }
 
-  console.log(JSON.stringify(posts));
   res.send({});
 });
 
