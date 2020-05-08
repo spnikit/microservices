@@ -26,14 +26,20 @@ app.post("/events", (req, res) => {
     }
 
     case "commentcreated": {
-      const { id, content, postId } = data;
-      posts[postId].comments.push({ id, content });
+      const { id, content, postId, status } = data;
+      posts[postId].comments.push({ id, content, status });
       break;
     }
 
-    default: {
-      console.log("Query service: There is no such event type", eventType);
-      res.status(400).send({});
+    case "commentupdated": {
+      const { postId, id, content, status } = data;
+
+      const comments = posts[postId].comments;
+      const comment = comments.find((comment) => comment.id === id);
+
+      comment.status = status;
+      comment.content = content;
+
       break;
     }
   }
