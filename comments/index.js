@@ -37,5 +37,10 @@ app.post("/posts/:id/comments", async (req, res) => {
   res.status(201).send(comments);
 });
 
+app.post("/events", (req, res) => {
+  console.log("Comments Service: Event received", req.body.type);
+  res.send({});
+});
+
 // ******** SERVER FIRE UP *********
 app.listen(6001, () => console.log("Server is listening on port 6001"));
