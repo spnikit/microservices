@@ -42,5 +42,6 @@ app.post("/events", (req, res) => {
 
 // ******** SERVER FIRE UP *********
 app.listen(PORT, () => {
+  console.log("V20");
   console.log(`Listening on port ${PORT}`);
 });
