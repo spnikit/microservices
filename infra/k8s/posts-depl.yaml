@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: posts-depl
+spec:
+  replicas: 1
+  selector: # chose what to monitor
+    matchLabels:
+      app: posts
+  template: # settings of what we're creating
+    metadata:
+      labels:
+        app: posts
+    spec:
+      containers:
+        - name: posts
+          image: nsp86/grinder-microservices:posts
