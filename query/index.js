@@ -27,7 +27,7 @@ app.post("/events", (req, res) => {
 app.listen(6002, async () => {
   console.log("Server is listening on PORT 6002");
 
-  const resp = await axios.get("http://localhost:4005/events");
+  const resp = await axios.get("http://event-bus-srv:4005/events");
 
   for (const { type, data } of resp.data) {
     console.log("Processing event", type);
