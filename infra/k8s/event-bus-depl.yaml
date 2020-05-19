@@ -15,7 +15,7 @@ spec:
       containers:
         - name: event-bus
           image: nsp86/event-bus
---- # CLUSTER IP SERVICE
+---
 apiVersion: v1
 kind: Service
 metadata:
