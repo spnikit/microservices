@@ -9,7 +9,7 @@ function PostCreate() {
     e.preventDefault();
     e.stopPropagation();
 
-    await axios.post("http://posts.com/posts", { title });
+    await axios.post("http://posts.com/posts/create", { title });
 
     setTitle("");
   };
