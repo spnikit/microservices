@@ -1,6 +1,6 @@
 import React from "react";
 
-function CommentList({ comments }) {
+function CommentList({ comments = [] }) {
   const renderedComments = comments.map(({ id, content, status }) => {
     let contentToRender;
     switch (status) {
